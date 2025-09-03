@@ -19,9 +19,9 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full min-h-screen">
+        <div className="flex items-center h-full min-h-screen">
           {/* Left Content - Text */}
-          <div className="flex flex-col justify-center">
+          <div className="flex-1 max-w-2xl">
             {/* Main Headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-50 mb-6 leading-tight">
               Empowering{' '}
@@ -53,63 +53,63 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Content - CardSwap */}
-          <div className="relative h-full flex items-center justify-center">
-            <div style={{ height: '600px', position: 'relative', width: '100%' }}>
+          {/* Right Content - CardSwap positioned to align with text */}
+          <div className="flex-1 relative h-full flex items-center justify-end">
+            <div style={{ height: '500px', position: 'relative', width: '400px' }}>
               <CardSwap
-                width={320}
-                height={450}
-                cardDistance={40}
-                verticalDistance={50}
+                width={280}
+                height={180}
+                cardDistance={30}
+                verticalDistance={35}
                 delay={4000}
                 pauseOnHover={true}
               >
-                <Card className="bg-gradient-to-br from-primary-900/90 to-primary-500/90 border-primary-500/30 backdrop-blur-sm overflow-hidden">
+                <Card className="bg-gradient-to-br from-primary-900/95 to-primary-500/95 border-primary-500/40 backdrop-blur-sm overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Innovation Poster"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center scale-125"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-xl font-bold text-primary-50 mb-2">Innovation Summit</h3>
-                    <p className="text-primary-100/80 text-sm">Transforming Ideas into Reality</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-lg font-bold text-primary-50 mb-1">Innovation Summit</h3>
+                    <p className="text-primary-100/80 text-xs">Transforming Ideas</p>
                   </div>
                 </Card>
-                <Card className="bg-gradient-to-br from-primary-500/90 to-primary-100/90 border-primary-100/30 backdrop-blur-sm overflow-hidden">
+                <Card className="bg-gradient-to-br from-primary-500/95 to-primary-100/95 border-primary-100/40 backdrop-blur-sm overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Startup Poster"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center scale-125"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-xl font-bold text-primary-50 mb-2">Startup Accelerator</h3>
-                    <p className="text-primary-100/80 text-sm">From Concept to Market</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-lg font-bold text-primary-50 mb-1">Startup Accelerator</h3>
+                    <p className="text-primary-100/80 text-xs">Concept to Market</p>
                   </div>
                 </Card>
-                <Card className="bg-gradient-to-br from-primary-100/90 to-primary-500/90 border-primary-500/30 backdrop-blur-sm overflow-hidden">
+                <Card className="bg-gradient-to-br from-primary-100/95 to-primary-500/95 border-primary-500/40 backdrop-blur-sm overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Entrepreneurship Poster"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center scale-125"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-xl font-bold text-primary-50 mb-2">Entrepreneur Meet</h3>
-                    <p className="text-primary-100/80 text-sm">Building Tomorrow's Leaders</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-lg font-bold text-primary-50 mb-1">Entrepreneur Meet</h3>
+                    <p className="text-primary-100/80 text-xs">Tomorrow's Leaders</p>
                   </div>
                 </Card>
-                <Card className="bg-gradient-to-br from-primary-900/90 to-primary-100/90 border-primary-100/30 backdrop-blur-sm overflow-hidden">
+                <Card className="bg-gradient-to-br from-primary-900/95 to-primary-100/95 border-primary-100/40 backdrop-blur-sm overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Tech Innovation Poster"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center scale-125"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-xl font-bold text-primary-50 mb-2">Tech Innovation</h3>
-                    <p className="text-primary-100/80 text-sm">AI & Future Technologies</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-lg font-bold text-primary-50 mb-1">Tech Innovation</h3>
+                    <p className="text-primary-100/80 text-xs">AI & Future Tech</p>
                   </div>
                 </Card>
               </CardSwap>
