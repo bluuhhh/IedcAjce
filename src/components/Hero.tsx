@@ -1,119 +1,95 @@
 import React from 'react';
-import { ArrowRight, Play } from 'lucide-react';
-import Plasma from './Plasma';
-import CardSwap, { Card } from './CardSwap';
+import { Award, Users, Globe, TrendingUp } from 'lucide-react';
 
-const Hero: React.FC = () => {
+const About: React.FC = () => {
+  const highlights = [
+    { icon: Award, text: "Kerala's first BIRAC BioNEST", color: "text-primary-500" },
+    { icon: Users, text: "Multi-crore initiatives", color: "text-primary-500" },
+    { icon: Globe, text: "Government of India recognition", color: "text-primary-500" },
+    { icon: TrendingUp, text: "Established in 2006", color: "text-primary-500" }
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-primary-900">
-      {/* Plasma Background */}
-      <div className="absolute inset-0">
-        <Plasma 
-          color="#3F72AF"
-          speed={0.6}
-          direction="forward"
-          scale={1.1}
-          opacity={0.3}
-          mouseInteractive={true}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex items-center h-full min-h-screen">
-          {/* Left Content - Text */}
-          <div className="flex-1 max-w-2xl">
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-50 mb-6 leading-tight">
-              Empowering{' '}
+    <section className="py-24 bg-primary-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-100/50 to-primary-50"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-8">
+              We collaborate with leaders to{' '}
               <span className="text-primary-500">
-                Innovation
+                revolutionize
               </span>
-              <br />
-              Inspiring{' '}
-              <span className="text-primary-100">
-                Entrepreneurs
-              </span>
-            </h1>
+            </h2>
+            
+            <div className="prose prose-lg text-primary-900/80 mb-8">
+              <p className="text-xl leading-relaxed mb-6">
+                The Innovation and Entrepreneurship Development Cell (IEDC) at Startup Valley Amal Jyothi TBI 
+                has been at the forefront of innovation since its establishment in 2006.
+              </p>
+              <p className="text-lg leading-relaxed mb-6">
+                With recognition from the Government of India and the distinction of being Kerala's first 
+                BIRAC BioNEST, we have spearheaded multi-crore initiatives that have transformed countless 
+                dreams into reality.
+              </p>
+              <p className="text-lg leading-relaxed">
+                Our mission is clear: to guide students from being followers to becoming pioneers, 
+                fostering an ecosystem where bold ideas flourish and entrepreneurial spirits soar.
+              </p>
+            </div>
 
-            {/* Subheadline */}
-            <p className="text-lg md:text-xl lg:text-2xl text-primary-100 mb-12 max-w-2xl leading-relaxed">
-              Got an idea? Let's make it happen! Join us in the transformative adventure to unleash your potential turning ideas into powerful innovations.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6">
-              <button className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-100 text-primary-50 rounded-full text-lg font-semibold hover:from-primary-500/80 hover:to-primary-100/80 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 shadow-lg shadow-primary-500/25">
-                Explore
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="group px-8 py-4 border-2 border-primary-500/50 text-primary-50 rounded-full text-lg font-semibold hover:border-primary-500 hover:bg-primary-500/10 transition-all duration-300 flex items-center gap-2">
-                <Play className="w-5 h-5" />
-                Events
-              </button>
+            {/* Highlights Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              {highlights.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={index} className="flex items-center space-x-3 group">
+                    <div className="w-10 h-10 rounded-full bg-primary-100/80 flex items-center justify-center group-hover:bg-primary-100 transition-colors">
+                      <IconComponent className={`w-5 h-5 ${item.color}`} />
+                    </div>
+                    <span className="text-primary-900/80 font-medium">{item.text}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Right Content - CardSwap positioned to align with text */}
-          <div className="flex-1 relative h-full flex items-center justify-end">
-            <div style={{ height: '500px', position: 'relative', width: '400px' }}>
-              <CardSwap
-                width={280}
-                height={180}
-                cardDistance={30}
-                verticalDistance={35}
-                delay={4000}
-                pauseOnHover={true}
-              >
-                <Card className="bg-gradient-to-br from-primary-900/95 to-primary-500/95 border-primary-500/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Innovation Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Innovation Summit</h3>
-                    <p className="text-primary-100/80 text-xs">Transforming Ideas</p>
+          {/* Visual Element */}
+          <div className="relative">
+            <div className="relative z-10 bg-gradient-to-br from-primary-500/20 via-primary-100/20 to-primary-500/20 rounded-3xl p-8 backdrop-blur-sm border border-primary-500/30">
+              <div className="grid grid-cols-2 gap-4 h-64">
+                <div className="bg-gradient-to-br from-primary-500/30 to-primary-100/30 rounded-2xl flex items-center justify-center">
+                  <div className="text-center text-primary-900">
+                    <div className="text-3xl font-bold mb-2">2006</div>
+                    <div className="text-sm opacity-80">Established</div>
                   </div>
-                </Card>
-                <Card className="bg-gradient-to-br from-primary-500/95 to-primary-100/95 border-primary-100/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Startup Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Startup Accelerator</h3>
-                    <p className="text-primary-100/80 text-xs">Concept to Market</p>
+                </div>
+                <div className="bg-gradient-to-br from-primary-100/30 to-primary-500/30 rounded-2xl flex items-center justify-center">
+                  <div className="text-center text-primary-900">
+                    <div className="text-3xl font-bold mb-2">₹5Cr+</div>
+                    <div className="text-sm opacity-80">Initiatives</div>
                   </div>
-                </Card>
-                <Card className="bg-gradient-to-br from-primary-100/95 to-primary-500/95 border-primary-500/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Entrepreneurship Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Entrepreneur Meet</h3>
-                    <p className="text-primary-100/80 text-xs">Tomorrow's Leaders</p>
+                </div>
+                <div className="bg-gradient-to-br from-primary-500/30 to-primary-100/30 rounded-2xl flex items-center justify-center">
+                  <div className="text-center text-primary-900">
+                    <div className="text-3xl font-bold mb-2">1st</div>
+                    <div className="text-sm opacity-80">BIRAC BioNEST</div>
                   </div>
-                </Card>
-                <Card className="bg-gradient-to-br from-primary-900/95 to-primary-100/95 border-primary-100/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Tech Innovation Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Tech Innovation</h3>
-                    <p className="text-primary-100/80 text-xs">AI & Future Tech</p>
+                </div>
+                <div className="bg-gradient-to-br from-primary-100/30 to-primary-500/30 rounded-2xl flex items-center justify-center">
+                  <div className="text-center text-primary-900">
+                    <div className="text-3xl font-bold mb-2">500+</div>
+                    <div className="text-sm opacity-80">Startups Guided</div>
                   </div>
-                </Card>
-              </CardSwap>
+                </div>
+              </div>
             </div>
+            
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-500/20 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-100/20 rounded-full blur-xl animate-bounce"></div>
           </div>
         </div>
       </div>
@@ -121,4 +97,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default About;
