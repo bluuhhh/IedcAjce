@@ -19,7 +19,7 @@ interface InfiniteScrollProps {
 }
 
 export default function InfiniteScroll({
-  width = '30rem',
+  width = '100%', // make fully responsive by default
   maxHeight = '100%',
   negativeMargin = '-0.5em',
   items = [],
@@ -141,11 +141,13 @@ export default function InfiniteScroll({
       ref={wrapperRef}
       style={{ maxHeight }}
     >
+      {/* Top gradient fade */}
       <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-primary-900 to-transparent z-10 pointer-events-none"></div>
+      {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-primary-900 to-transparent z-10 pointer-events-none"></div>
 
       <div
-        className="flex flex-col overscroll-contain px-4 cursor-grab origin-center"
+        className="flex flex-col overscroll-contain px-2 sm:px-4 md:px-6 lg:px-8 cursor-grab origin-center w-full max-w-screen-xl"
         ref={containerRef}
         style={{
           width,
@@ -154,7 +156,7 @@ export default function InfiniteScroll({
       >
         {items.map((item, i) => (
           <div
-            className="flex items-center justify-center p-2 text-xl font-semibold text-center border-2 border-primary-500/30 rounded-2xl select-none box-border relative bg-primary-50/10 backdrop-blur-sm"
+            className="flex items-center justify-center p-2 text-base sm:text-lg md:text-xl font-semibold text-center border-2 border-primary-500/30 rounded-2xl select-none box-border relative bg-primary-50/10 backdrop-blur-sm w-full"
             key={i}
             style={{
               height: `${itemMinHeight}px`,
