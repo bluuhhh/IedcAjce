@@ -1,9 +1,108 @@
 import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
 import Plasma from './Plasma';
-import CardSwap, { Card } from './CardSwap';
+import InfiniteScroll from './InfiniteScroll';
 
 const Hero: React.FC = () => {
+  const posterItems = [
+    {
+      content: (
+        <div className="w-full h-full relative overflow-hidden rounded-lg">
+          <img 
+            src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="Innovation Summit Poster"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <h4 className="text-sm font-bold text-primary-50 mb-1">Innovation Summit 2024</h4>
+            <p className="text-primary-100/80 text-xs">Transforming Ideas into Reality</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      content: (
+        <div className="w-full h-full relative overflow-hidden rounded-lg">
+          <img 
+            src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="Startup Accelerator Poster"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <h4 className="text-sm font-bold text-primary-50 mb-1">Startup Accelerator</h4>
+            <p className="text-primary-100/80 text-xs">From Concept to Market</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      content: (
+        <div className="w-full h-full relative overflow-hidden rounded-lg">
+          <img 
+            src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="Entrepreneur Meet Poster"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <h4 className="text-sm font-bold text-primary-50 mb-1">Entrepreneur Meet</h4>
+            <p className="text-primary-100/80 text-xs">Building Tomorrow's Leaders</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      content: (
+        <div className="w-full h-full relative overflow-hidden rounded-lg">
+          <img 
+            src="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="Tech Innovation Poster"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <h4 className="text-sm font-bold text-primary-50 mb-1">Tech Innovation Lab</h4>
+            <p className="text-primary-100/80 text-xs">AI & Future Technologies</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      content: (
+        <div className="w-full h-full relative overflow-hidden rounded-lg">
+          <img 
+            src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="Funding Workshop Poster"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <h4 className="text-sm font-bold text-primary-50 mb-1">Funding Workshop</h4>
+            <p className="text-primary-100/80 text-xs">Securing Investment</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      content: (
+        <div className="w-full h-full relative overflow-hidden rounded-lg">
+          <img 
+            src="https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="Pitch Competition Poster"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <h4 className="text-sm font-bold text-primary-50 mb-1">Pitch Battle 2024</h4>
+            <p className="text-primary-100/80 text-xs">Compete for Glory</p>
+          </div>
+        </div>
+      )
+    }
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-primary-900">
       {/* Plasma Background */}
@@ -21,7 +120,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full min-h-screen">
           {/* Left Content - Text */}
-          <div className="flex-1 max-w-2xl">
+          <div className="flex-1 max-w-2xl pr-8">
             {/* Main Headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-50 mb-6 leading-tight">
               Empowering{' '}
@@ -53,66 +152,22 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Content - CardSwap positioned to align with text */}
-          <div className="flex-1 relative h-full flex items-center justify-end">
-            <div style={{ height: '500px', position: 'relative', width: '400px' }}>
-              <CardSwap
-                width={280}
-                height={180}
-                cardDistance={30}
-                verticalDistance={35}
-                delay={4000}
+          {/* Right Content - InfiniteScroll positioned to align with text */}
+          <div className="flex-1 relative h-full flex items-center justify-center">
+            <div style={{ height: '500px', position: 'relative', width: '350px' }}>
+              <InfiniteScroll
+                items={posterItems}
+                width="20rem"
+                maxHeight="500px"
+                itemMinHeight={120}
+                isTilted={true}
+                tiltDirection="left"
+                autoplay={true}
+                autoplaySpeed={0.3}
+                autoplayDirection="down"
                 pauseOnHover={true}
-              >
-                <Card className="bg-gradient-to-br from-primary-900/95 to-primary-500/95 border-primary-500/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Innovation Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Innovation Summit</h3>
-                    <p className="text-primary-100/80 text-xs">Transforming Ideas</p>
-                  </div>
-                </Card>
-                <Card className="bg-gradient-to-br from-primary-500/95 to-primary-100/95 border-primary-100/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Startup Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Startup Accelerator</h3>
-                    <p className="text-primary-100/80 text-xs">Concept to Market</p>
-                  </div>
-                </Card>
-                <Card className="bg-gradient-to-br from-primary-100/95 to-primary-500/95 border-primary-500/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Entrepreneurship Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Entrepreneur Meet</h3>
-                    <p className="text-primary-100/80 text-xs">Tomorrow's Leaders</p>
-                  </div>
-                </Card>
-                <Card className="bg-gradient-to-br from-primary-900/95 to-primary-100/95 border-primary-100/40 backdrop-blur-sm overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Tech Innovation Poster"
-                    className="w-full h-full object-cover object-center scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold text-primary-50 mb-1">Tech Innovation</h3>
-                    <p className="text-primary-100/80 text-xs">AI & Future Tech</p>
-                  </div>
-                </Card>
-              </CardSwap>
+                negativeMargin="-0.8em"
+              />
             </div>
           </div>
         </div>
