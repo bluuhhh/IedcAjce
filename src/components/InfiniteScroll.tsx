@@ -5,6 +5,7 @@ import { Observer } from 'gsap/Observer';
 gsap.registerPlugin(Observer);
 
 interface InfiniteScrollProps {
+  width?: string; // accept '100%' to fill parent
   maxHeight?: string;
   negativeMargin?: string;
   items?: Array<{ content: React.ReactNode }>;
@@ -18,6 +19,7 @@ interface InfiniteScrollProps {
 }
 
 export default function InfiniteScroll({
+  width = '100%', // default to fill available width
   maxHeight = '100%',
   negativeMargin = '-0.5em',
   items = [],
@@ -135,26 +137,28 @@ export default function InfiniteScroll({
 
   return (
     <div
-      className="relative flex items-center justify-center w-full overflow-hidden overscroll-none border-t-2 border-b-2 border-t-dotted border-b-dotted border-transparent"
       ref={wrapperRef}
+      className="relative flex items-center justify-center w-full overflow-hidden overscroll-none border-t-2 border-b-2 border-t-dotted border-b-dotted border-transparent"
       style={{ maxHeight }}
     >
       {/* Top gradient fade */}
-      <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-primary-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-primary-900 to-transparent z-10 pointer-events-none" />
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-primary-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-primary-900 to-transparent z-10 pointer-events-none" />
 
       <div
-        className="flex flex-col overscroll-contain px-2 sm:px-4 md:px-6 lg:px-8 cursor-grab origin-center w-full"
         ref={containerRef}
+        // keep full-width behavior via class and allow width override (use '100%' to fill)
+        className="flex flex-col overscroll-contain px-2 sm:px-4 md:px-6 lg:px-8 cursor-grab origin-center w-full"
         style={{
+          width: width ?? '100%',
           transform: getTiltTransform()
         }}
       >
         {items.map((item, i) => (
           <div
-            className="flex items-center justify-center p-2 text-base sm:text-lg md:text-xl font-semibold text-center border-2 border-primary-500/30 rounded-2xl select-none box-border relative bg-primary-50/10 backdrop-blur-sm w-full"
             key={i}
+            className="flex items-center justify-center p-2 text-base sm:text-lg md:text-xl font-semibold text-center border-2 border-primary-500/30 rounded-2xl select-none box-border relative bg-primary-50/10 backdrop-blur-sm w-full"
             style={{
               height: `${itemMinHeight}px`,
               marginTop: negativeMargin

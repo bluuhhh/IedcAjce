@@ -11,11 +11,14 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-100 rounded-lg flex items-center justify-center">
-              <Zap className="w-6 h-6 text-primary-50" />
-            </div>
-            <span className="text-xl font-bold text-primary-50">IEDC</span>
+          <div className="flex items-center w-auto">
+            <a href="#" className="flex items-center ">
+              <img
+                src="https://iedcajce.in/images/mh.png"
+                alt="IEDC Logo"
+                className="h-10 rounded-lg object-cover shadow-lg "
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
