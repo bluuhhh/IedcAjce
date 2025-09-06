@@ -5,7 +5,6 @@ import { Observer } from 'gsap/Observer';
 gsap.registerPlugin(Observer);
 
 interface InfiniteScrollProps {
-  width?: string;
   maxHeight?: string;
   negativeMargin?: string;
   items?: Array<{ content: React.ReactNode }>;
@@ -19,7 +18,6 @@ interface InfiniteScrollProps {
 }
 
 export default function InfiniteScroll({
-  width = '100%', // make fully responsive by default
   maxHeight = '100%',
   negativeMargin = '-0.5em',
   items = [],
@@ -147,10 +145,9 @@ export default function InfiniteScroll({
       <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-primary-900 to-transparent z-10 pointer-events-none"></div>
 
       <div
-        className="flex flex-col overscroll-contain px-2 sm:px-4 md:px-6 lg:px-8 cursor-grab origin-center w-full max-w-screen-xl"
+        className="flex flex-col overscroll-contain px-2 sm:px-4 md:px-6 lg:px-8 cursor-grab origin-center w-full"
         ref={containerRef}
         style={{
-          width,
           transform: getTiltTransform()
         }}
       >
